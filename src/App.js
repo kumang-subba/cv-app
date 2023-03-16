@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import UserForm from "./components/Form";
+import "./App.css";
+import Displayform from "./components/Display";
 
 function App() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    tel: "",
+    schName: "",
+    studyTitle: "",
+    dateOfStudy: "",
+    companyName: "",
+    companyPos: "",
+    tasks: "",
+  });
+  const [isForm, setIsForm] = useState(false);
+  const [sendForm, setSendForm] = useState({});
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const sendForm = { ...form };
+    setSendForm(sendForm);
+    setIsForm(true);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>Create a CV</h1>
+      <div className="container">
+        <UserForm
+          formUser={form}
+          handleChange={(e) => handleChange(e)}
+          handleSubmit={(e) => handleSubmit(e)}
+        />
+        {isForm && (
+          <Displayform sendForm={sendForm} setSendForm={setSendForm} />
+        )}
+      </div>
     </div>
   );
 }

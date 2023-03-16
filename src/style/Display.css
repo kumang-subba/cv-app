@@ -1,0 +1,48 @@
+.display {
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 100%;
+  margin: 0 50px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 5rem 12rem auto;
+  height: 80vh;
+}
+.name {
+  text-align: center;
+  background-color: rgb(222, 124, 124);
+  grid-column-start: 1;
+  grid-column-end: 3;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: rgb(216, 216, 216);
+  position: relative;
+}
+.editbtn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 5px;
+}
+.contacts {
+  text-align: left;
+  padding: 2px 5rem;
+}
+.heading {
+  color: rgb(71, 27, 27);
+  font-size: 3rem;
+}
+.education {
+  text-align: left;
+  padding: 2px 5rem;
+}
+.exp {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding: 2px 5rem;
+}
+.exp > .heading {
+  text-align: center;
+}
+.carreer {
+  text-align: left;
+}
